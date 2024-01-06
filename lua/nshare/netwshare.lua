@@ -2,7 +2,6 @@
 -- EPITECH PROJECT, 2024
 -- nshare
 -- File description:
--- init.lua
+-- localshare.lua
 --
 
-print("Init netwshare")
