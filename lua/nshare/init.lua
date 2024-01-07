@@ -13,7 +13,7 @@ local nshare = {
     _AUTHOR = "Laurent Gonzalez (lg-epitech)",
 }
 
-local prerequisite, lua_socket = pcall(require, "socket")
+local prerequisite, _ = pcall(require, "socket")
 
 if (not prerequisite) then
     print("ERROR LAUNCHING NSHARE\nLuaSocket isn't installed on your environment.\n\
@@ -21,7 +21,22 @@ Please consider checking the git repo for additional informations under 'Install
     return nshare
 end
 
-local localshare = require("nshare.localshare")
-local netwshare = require("nshare.netwshare")
+local client = require("nshare.client")
+
+vim.api.nvim_create_user_command(
+    "ShareSession",
+    function()
+        client.session:start()
+    end,
+    {}
+)
+
+vim.api.nvim_create_user_command(
+    "StopSession",
+    function()
+        client.session:stop()
+    end,
+    {}
+)
 
 return nshare
