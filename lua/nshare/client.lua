@@ -5,9 +5,17 @@
 -- session.lua
 --
 
+socket = require("socket")
+
 ---@class Session
----@field public IP string
----@field public PORT integer
+---@field public host string
+---@field public ip string
+---@field public port integer
+---@field public server table
+-- TODO: make participant class
+---@field public participants table
+---@field public nb_participants integer
+---@field public participant_names table
 Session = {}
 
 function Session:start()
